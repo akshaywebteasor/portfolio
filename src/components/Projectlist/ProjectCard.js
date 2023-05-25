@@ -1,13 +1,23 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { Carousel } from "react-bootstrap";
 
 
 
 function ProjectCard(props) {
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
+      <Carousel>
+      {props.imgPath.map((img)=>{
+        return (
+          
+            <Carousel.Item>
+              <Card.Img variant="top" src={img} alt="card-img" />
+            </Carousel.Item>
+          )
+      })}
+      </Carousel>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "justify" }}>
